@@ -117,58 +117,58 @@ type ServiceStatusResponse = {
 const STORAGE_KEY = "storelocalizer_state_v1";
 
 const LOCALES: LocaleOption[] = [
-  { code: "ar-SA", label: "アラビア語 (サウジアラビア)" },
-  { code: "it", label: "イタリア語" },
-  { code: "id", label: "インドネシア語" },
-  { code: "uk", label: "ウクライナ語" },
-  { code: "nl-NL", label: "オランダ語" },
-  { code: "ca", label: "カタロニア語" },
-  { code: "el", label: "ギリシャ語" },
-  { code: "hr", label: "クロアチア語" },
-  { code: "sv", label: "スウェーデン語" },
-  { code: "es-ES", label: "スペイン語 (スペイン)" },
-  { code: "es-MX", label: "スペイン語 (メキシコ)" },
-  { code: "sk", label: "スロバキア語" },
-  { code: "th", label: "タイ語" },
-  { code: "cs", label: "チェコ語" },
-  { code: "da", label: "デンマーク語" },
-  { code: "de-DE", label: "ドイツ語" },
-  { code: "tr", label: "トルコ語" },
-  { code: "no", label: "ノルウェー語" },
-  { code: "hu", label: "ハンガリー語" },
-  { code: "hi", label: "ヒンディー語" },
-  { code: "fi", label: "フィンランド語" },
-  { code: "fr-FR", label: "フランス語 (フランス)" },
-  { code: "fr-CA", label: "フランス語 (カナダ)" },
-  { code: "vi", label: "ベトナム語" },
-  { code: "he", label: "ヘブライ語" },
-  { code: "pl", label: "ポーランド語" },
-  { code: "pt-BR", label: "ポルトガル語 (ブラジル)" },
-  { code: "pt-PT", label: "ポルトガル語 (ポルトガル)" },
-  { code: "ms", label: "マレー語" },
-  { code: "ro", label: "ルーマニア語" },
-  { code: "ru", label: "ロシア語" },
-  { code: "en-US", label: "英語 (アメリカ)" },
-  { code: "en-GB", label: "英語 (イギリス)" },
-  { code: "en-AU", label: "英語 (オーストラリア)" },
-  { code: "en-CA", label: "英語 (カナダ)" },
-  { code: "ko", label: "韓国語" },
-  { code: "zh-Hans", label: "中国語 (簡体字)" },
-  { code: "zh-Hant", label: "中国語 (繁体字)" },
-  { code: "ja", label: "日本語" },
+  { code: "ar-SA", label: "阿拉伯语（沙特阿拉伯）" },
+  { code: "ca", label: "加泰罗尼亚语" },
+  { code: "zh-Hans", label: "中文（简体）" },
+  { code: "zh-Hant", label: "中文（繁体）" },
+  { code: "hr", label: "克罗地亚语" },
+  { code: "cs", label: "捷克语" },
+  { code: "da", label: "丹麦语" },
+  { code: "nl-NL", label: "荷兰语" },
+  { code: "en-AU", label: "英语（澳大利亚）" },
+  { code: "en-CA", label: "英语（加拿大）" },
+  { code: "en-GB", label: "英语（英国）" },
+  { code: "en-US", label: "英语（美国）" },
+  { code: "fi", label: "芬兰语" },
+  { code: "fr-CA", label: "法语（加拿大）" },
+  { code: "fr-FR", label: "法语（法国）" },
+  { code: "de-DE", label: "德语" },
+  { code: "el", label: "希腊语" },
+  { code: "he", label: "希伯来语" },
+  { code: "hi", label: "印地语" },
+  { code: "hu", label: "匈牙利语" },
+  { code: "id", label: "印尼语" },
+  { code: "it", label: "意大利语" },
+  { code: "ja", label: "日语" },
+  { code: "ko", label: "韩语" },
+  { code: "ms", label: "马来语" },
+  { code: "no", label: "挪威语" },
+  { code: "pl", label: "波兰语" },
+  { code: "pt-BR", label: "葡萄牙语（巴西）" },
+  { code: "pt-PT", label: "葡萄牙语（葡萄牙）" },
+  { code: "ro", label: "罗马尼亚语" },
+  { code: "ru", label: "俄语" },
+  { code: "sk", label: "斯洛伐克语" },
+  { code: "es-MX", label: "西班牙语（墨西哥）" },
+  { code: "es-ES", label: "西班牙语（西班牙）" },
+  { code: "sv", label: "瑞典语" },
+  { code: "th", label: "泰语" },
+  { code: "tr", label: "土耳其语" },
+  { code: "uk", label: "乌克兰语" },
+  { code: "vi", label: "越南语" },
 ];
 
 const FIELD_LABELS: { key: FieldKey; label: string; multiline?: boolean }[] = [
-  { key: "title", label: "タイトル" },
-  { key: "subtitle", label: "サブタイトル" },
-  { key: "promotionalText", label: "プロモーション用テキスト", multiline: true },
-  { key: "description", label: "概要", multiline: true },
-  { key: "keywords", label: "キーワード" },
-  { key: "whatsNew", label: "このバージョンの最新情報", multiline: true },
-  { key: "iapDisplayName", label: "IAP表示名" },
-  { key: "iapDescription", label: "IAP説明" },
-  { key: "subscriptionGroupDisplayName", label: "サブスクグループ表示名" },
-  { key: "subscriptionCustomName", label: "サブスクカスタム名" },
+  { key: "title", label: "标题" },
+  { key: "subtitle", label: "副标题" },
+  { key: "promotionalText", label: "推广文本", multiline: true },
+  { key: "description", label: "应用描述", multiline: true },
+  { key: "keywords", label: "关键词" },
+  { key: "whatsNew", label: "本版本更新内容", multiline: true },
+  { key: "iapDisplayName", label: "IAP 显示名称" },
+  { key: "iapDescription", label: "IAP 描述" },
+  { key: "subscriptionGroupDisplayName", label: "订阅组显示名称" },
+  { key: "subscriptionCustomName", label: "订阅自定义名称" },
 ];
 
 const FIELD_LIMITS: Record<FieldKey, number> = {
@@ -185,15 +185,15 @@ const FIELD_LIMITS: Record<FieldKey, number> = {
 };
 
 const SINGLE_FIELD_PLANS: PlanOption[] = [
-  { id: "single_3", name: "ライト", count: 3, countLabel: "3言語", priceJpy: "¥150", priceUsd: "$0.99" },
-  { id: "single_10", name: "スタンダード", count: 10, countLabel: "10言語", priceJpy: "¥390", priceUsd: "$2.99" },
-  { id: "single_all", name: "プロ", count: "all", countLabel: "全39言語", priceJpy: "¥860", priceUsd: "$6.99" },
+  { id: "single_3", name: "轻量版", count: 3, countLabel: "3 种语言", priceJpy: "¥150", priceUsd: "$0.99" },
+  { id: "single_10", name: "标准版", count: 10, countLabel: "10 种语言", priceJpy: "¥390", priceUsd: "$2.99" },
+  { id: "single_all", name: "专业版", count: "all", countLabel: "全部 39 种语言", priceJpy: "¥860", priceUsd: "$6.99" },
 ];
 
 const ALL_FIELD_PLANS: PlanOption[] = [
-  { id: "all_3", name: "ライト", count: 3, countLabel: "3言語", priceJpy: "¥590", priceUsd: "$4.00" },
-  { id: "all_10", name: "スタンダード", count: 10, countLabel: "10言語", priceJpy: "¥1480", priceUsd: "$9.99" },
-  { id: "all_all", name: "プロ", count: "all", countLabel: "全39言語", priceJpy: "¥2980", priceUsd: "$19.99" },
+  { id: "all_3", name: "轻量版", count: 3, countLabel: "3 种语言", priceJpy: "¥590", priceUsd: "$4.00" },
+  { id: "all_10", name: "标准版", count: 10, countLabel: "10 种语言", priceJpy: "¥1480", priceUsd: "$9.99" },
+  { id: "all_all", name: "专业版", count: "all", countLabel: "全部 39 种语言", priceJpy: "¥2980", priceUsd: "$19.99" },
 ];
 
 const KANA_RE = /[\u3040-\u30ff]/g;
@@ -240,7 +240,6 @@ const emptyFields = (): LocaleFields => ({
 
 function getOrderedLocales(codes: string[]) {
   const selected = new Set(codes);
-
   return LOCALES.map((x) => x.code).filter((code) => selected.has(code));
 }
 
@@ -295,8 +294,8 @@ function normalizeDetectedLocale(code: string) {
 }
 
 function getInitialSourceLocale() {
-  if (typeof navigator === "undefined") return "ja";
-  return normalizeDetectedLocale(navigator.language || "") || "ja";
+  if (typeof navigator === "undefined") return "zh-Hans";
+  return normalizeDetectedLocale(navigator.language || "") || "zh-Hans";
 }
 
 function isCreditInsufficientMessage(message: string) {
@@ -381,13 +380,14 @@ function shouldShowSourceLocaleMismatchConfirm(
 
   const selectedLabel =
     LOCALES.find((x) => x.code === selectedSourceLocale)?.label ?? selectedSourceLocale;
-  const likelyLabel = LOCALES.find((x) => x.code === likelyLocale)?.label ?? likelyLocale;
+  const likelyLabel =
+    LOCALES.find((x) => x.code === likelyLocale)?.label ?? likelyLocale;
 
   return {
     shouldConfirm: true,
     message:
-      `元言語が "${selectedLabel}" になっていますが、入力文は "${likelyLabel}" に見えます。\n\n` +
-      `このまま進みますか？`,
+      `当前源语言设置为“${selectedLabel}”，但输入内容看起来像“${likelyLabel}”。\n\n` +
+      `要继续吗？`,
   };
 }
 
@@ -407,8 +407,8 @@ export default function Home() {
   const [selectedField, setSelectedField] = useState<FieldKey | null>(null);
   const [selectedPlan, setSelectedPlan] = useState<PlanOption | null>(null);
   const [pendingLocales, setPendingLocales] = useState<string[]>([]);
-  const [purchaseStatus, setPurchaseStatus] = useState("未購入");
-  const [lastActionText, setLastActionText] = useState("まだ翻訳未実行");
+  const [purchaseStatus, setPurchaseStatus] = useState("未购买");
+  const [lastActionText, setLastActionText] = useState("尚未执行翻译");
   const [purchasedPlan, setPurchasedPlan] = useState<PurchasedPlan | null>(null);
   const [copyMessage, setCopyMessage] = useState("");
   const [importMessage, setImportMessage] = useState("");
@@ -427,7 +427,7 @@ export default function Home() {
   const hasLoadedLocalRef = useRef(false);
 
   const isJapaneseUser = useMemo(() => {
-    if (typeof navigator === "undefined") return true;
+    if (typeof navigator === "undefined") return false;
     return navigator.language.toLowerCase().startsWith("ja");
   }, []);
 
@@ -466,8 +466,8 @@ export default function Home() {
 
       if (!data.enabled) {
         setIsServiceUnavailable(true);
-        setPurchaseStatus("停止中");
-        setLastActionText("現在ご利用できません");
+        setPurchaseStatus("暂停中");
+        setLastActionText("当前不可用");
         return;
       }
 
@@ -490,11 +490,11 @@ export default function Home() {
     setProgressLabel("");
     setPurchasedPlan(null);
     setTargetLocale("");
-    setPurchaseStatus("停止中");
+    setPurchaseStatus("暂停中");
     setLastActionText(
       cancelSucceeded
-        ? "翻訳に失敗したため、お支払いはキャンセルされました"
-        : "現在ご利用できません"
+        ? "由于翻译失败，付款已取消"
+        : "当前不可用"
     );
   }
 
@@ -586,7 +586,7 @@ export default function Home() {
     if (mismatch.shouldConfirm) {
       const ok = window.confirm(mismatch.message);
       if (!ok) {
-        setLastActionText("翻訳をキャンセルしました");
+        setLastActionText("已取消翻译");
         return;
       }
     }
@@ -607,7 +607,7 @@ export default function Home() {
     if (mismatch.shouldConfirm) {
       const ok = window.confirm(mismatch.message);
       if (!ok) {
-        setLastActionText("翻訳をキャンセルしました");
+        setLastActionText("已取消翻译");
         return;
       }
     }
@@ -651,8 +651,8 @@ export default function Home() {
     setSelectedField(null);
     setSelectedPlan(null);
     setPendingLocales([]);
-    setPurchaseStatus("未購入");
-    setLastActionText("初期化しました");
+    setPurchaseStatus("未购买");
+    setLastActionText("已初始化");
     setPurchasedPlan(null);
     setCopyMessage("");
     setImportMessage("");
@@ -668,12 +668,12 @@ export default function Home() {
   async function beginCheckout(plan: PlanOption, locales: string[]) {
     try {
       if (isServiceUnavailable) {
-        setLastActionText("現在ご利用できません");
+        setLastActionText("当前不可用");
         return;
       }
 
       setIsCheckoutLoading(true);
-      setLastActionText("決済ページへ移動中...");
+      setLastActionText("正在跳转到付款页面...");
 
       const orderedLocales = getOrderedLocales(locales);
 
@@ -719,14 +719,14 @@ export default function Home() {
       window.location.href = data.url;
     } catch (error) {
       console.error(error);
-      setLastActionText("決済ページへの移動に失敗しました");
+      setLastActionText("无法打开付款页面");
       setIsCheckoutLoading(false);
     }
   }
 
   function handlePlanSelect(plan: PlanOption) {
     if (isServiceUnavailable) {
-      setLastActionText("現在ご利用できません");
+      setLastActionText("当前不可用");
       return;
     }
 
@@ -756,7 +756,7 @@ export default function Home() {
         return prev;
       }
 
-      return [...prev, code];
+      return getOrderedLocales([...prev, code]);
     });
   }
 
@@ -774,7 +774,10 @@ export default function Home() {
       body: JSON.stringify({
         sourceLocale: sourceLocaleCode,
         sourceFields: sourceData,
-        purchasedPlan: plan,
+        purchasedPlan: {
+          ...plan,
+          selectedLocales: getOrderedLocales(plan.selectedLocales),
+        },
         sessionId,
       }),
     });
@@ -827,7 +830,7 @@ export default function Home() {
           selectedLocales: orderedLocales,
         });
         setTargetLocale(orderedLocales[0] ?? "");
-        setLastActionText("翻訳が完了しました");
+        setLastActionText("翻译已完成");
         return;
       }
 
@@ -852,8 +855,8 @@ export default function Home() {
 
     const actionText =
       mode === "single"
-        ? `購入完了: ${plan.name} / ${plan.countLabel} / ${FIELD_LABELS.find((x) => x.key === fieldKey)?.label ?? ""}のみ`
-        : `購入完了: ${plan.name} / ${plan.countLabel} / 全フィールド`;
+        ? `购买完成：${plan.name} / ${plan.countLabel} / 仅${FIELD_LABELS.find((x) => x.key === fieldKey)?.label ?? ""}`
+        : `购买完成：${plan.name} / ${plan.countLabel} / 全部字段`;
 
     const nextPlan: PurchasedPlan = {
       mode,
@@ -880,7 +883,7 @@ export default function Home() {
       return next;
     });
 
-    setPurchaseStatus("購入完了");
+    setPurchaseStatus("购买完成");
     setLastActionText(actionText);
     setPurchasedPlan(nextPlan);
     setTargetLocale(orderedLocales[0] ?? "");
@@ -905,7 +908,7 @@ export default function Home() {
       } else if (isCreditInsufficientMessage(message)) {
         markServiceUnavailable(true);
       } else {
-        setLastActionText("翻訳に失敗しました");
+        setLastActionText("翻译失败");
         setPurchasedPlan(null);
         setTargetLocale("");
       }
@@ -979,13 +982,13 @@ export default function Home() {
 
         if (parsed.purchasedPlan && typeof parsed.purchasedPlan === "object") {
           const restoredPlan = parsed.purchasedPlan as PurchasedPlan;
-          const orderedLocales = getOrderedLocales(restoredPlan.selectedLocales);
+          const orderedLocales = getOrderedLocales(restoredPlan.selectedLocales ?? []);
 
           setPurchasedPlan({
             ...restoredPlan,
             selectedLocales: orderedLocales,
           });
-          setPurchaseStatus("ローカル読込済み");
+          setPurchaseStatus("已从本地存储恢复");
 
           if (parsed.targetLocale && orderedLocales.includes(parsed.targetLocale)) {
             setTargetLocale(parsed.targetLocale);
@@ -997,7 +1000,7 @@ export default function Home() {
         }
 
         if (parsed.sourceLocale || parsed.localizedData || parsed.purchasedPlan) {
-          setLastActionText("ローカル保存から復元しました");
+          setLastActionText("已从本地存储恢复");
         }
 
         hasLoadedLocalRef.current = true;
@@ -1040,9 +1043,9 @@ export default function Home() {
     setIsCheckoutLoading(false);
 
     if (checkout === "cancel") {
-      setPurchaseStatus("未購入");
-      setLastActionText("決済をキャンセルしました");
-      window.history.replaceState({}, "", "/");
+      setPurchaseStatus("未购买");
+      setLastActionText("付款已取消");
+      window.history.replaceState({}, "", "/zh-Hans");
       sessionStorage.removeItem("pendingCheckout");
       return;
     }
@@ -1050,10 +1053,10 @@ export default function Home() {
     if (checkout === "success") {
       const raw = sessionStorage.getItem("pendingCheckout");
       sessionStorage.removeItem("pendingCheckout");
-      window.history.replaceState({}, "", "/");
+      window.history.replaceState({}, "", "/zh-Hans");
 
       if (!raw) {
-        setLastActionText("決済後データの復元に失敗しました");
+        setLastActionText("无法恢复付款后的数据");
         return;
       }
 
@@ -1062,12 +1065,12 @@ export default function Home() {
         const plan = findPlanById(pending.planId);
 
         if (!plan) {
-          setLastActionText("プラン情報の復元に失敗しました");
+          setLastActionText("无法恢复套餐信息");
           return;
         }
 
         if (!pending.sessionId) {
-          setLastActionText("決済情報の復元に失敗しました");
+          setLastActionText("无法恢复付款信息");
           return;
         }
 
@@ -1082,7 +1085,7 @@ export default function Home() {
         );
       } catch (error) {
         console.error(error);
-        setLastActionText("決済後データの復元に失敗しました");
+        setLastActionText("无法恢复付款后的数据");
       }
     }
   }, []);
@@ -1103,9 +1106,9 @@ export default function Home() {
 
     try {
       await navigator.clipboard.writeText(text);
-      showCopyToast(`${label} をコピーしました`);
+      showCopyToast(`已复制${label}`);
     } catch {
-      showCopyToast("コピーに失敗しました");
+      showCopyToast("复制失败");
     }
   }
 
@@ -1217,11 +1220,11 @@ export default function Home() {
           : null
       );
       setTargetLocale(orderedLocales[0] ?? "");
-      setPurchaseStatus(nextPurchasedPlan ? "JSON読込済み" : "未購入");
-      setLastActionText("JSONから復元しました");
-      showImportToast("JSONを読み込みました");
+      setPurchaseStatus(nextPurchasedPlan ? "已从 JSON 恢复" : "未购买");
+      setLastActionText("已从 JSON 恢复");
+      showImportToast("JSON 已加载");
     } catch {
-      showImportToast("JSONの読込に失敗しました");
+      showImportToast("JSON 加载失败");
     }
   }
 
@@ -1241,23 +1244,23 @@ export default function Home() {
       <div className="mx-auto max-w-7xl px-6 py-10">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold">ストアローカライザー</h1>
+            <h1 className="text-3xl font-bold">Store Localizer</h1>
             <p className="mt-3 text-zinc-100">
-              App Store / Google Play 向け文面を、文字数制限内で多言語翻訳
+              在字符数限制内翻译 App Store / Google Play 商店文案
             </p>
             <p className="mt-2 text-sm text-zinc-400">
-              タイトル、サブタイトル、プロモーション用テキスト、概要、キーワード、最新情報、IAP表示名、IAP説明、サブスクグループ表示名、サブスクカスタム名をまとめて翻訳・保存・コピーできます
+              可翻译、保存和复制标题、副标题、推广文本、应用描述、关键词、更新内容、IAP 显示名称、IAP 描述、订阅组显示名称和订阅自定义名称。
             </p>
             <div className="mt-2 flex items-center justify-between gap-4">
               <p className="text-sm text-zinc-400">
-                左で元言語を入力、翻訳後に右へ表示
+                在左侧输入源文本，翻译结果会显示在右侧
               </p>
 
               <Link
-                href="/how-to"
+                href="/zh-Hans/how-to"
                 className="shrink-0 rounded-xl border border-zinc-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-zinc-800"
               >
-                使い方
+                使用方法
               </Link>
             </div>
           </div>
@@ -1265,24 +1268,24 @@ export default function Home() {
 
         {isServiceUnavailable ? (
           <div className="mt-6 rounded-2xl border border-red-500 bg-red-500/10 px-5 py-4">
-            <p className="text-base font-bold text-red-300">現在ご利用できません</p>
+            <p className="text-base font-bold text-red-300">当前不可用</p>
             <p className="mt-1 text-sm text-red-200">
-              翻訳サービスは現在停止中です。
+              翻译服务当前已暂停。
             </p>
           </div>
         ) : null}
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           <section className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
-            <h2 className="text-lg font-semibold">入力</h2>
+            <h2 className="text-lg font-semibold">输入</h2>
 
             <div className="mt-4">
               <label htmlFor="source-locale" className="mb-2 block text-sm text-zinc-300">
-                元言語
+                源语言
               </label>
               <select
                 id="source-locale"
-                title="元言語"
+                title="源语言"
                 value={sourceLocale}
                 onChange={(e) => handleSourceLocaleChange(e.target.value)}
                 disabled={hasResult || isServiceUnavailable}
@@ -1363,7 +1366,7 @@ export default function Home() {
                           : "cursor-not-allowed bg-zinc-700 text-zinc-400"
                       }`}
                     >
-                      このフィールドのみ翻訳する
+                      仅翻译此字段
                     </button>
                   </div>
                 );
@@ -1379,7 +1382,7 @@ export default function Home() {
                     : "cursor-not-allowed bg-zinc-700 text-zinc-400"
                 }`}
               >
-                全フィールドを翻訳する
+                翻译全部字段
               </button>
             </div>
           </section>
@@ -1392,8 +1395,8 @@ export default function Home() {
                   type="file"
                   accept=".json,application/json"
                   className="hidden"
-                  title="JSONファイルを読み込む"
-                  aria-label="JSONファイルを読み込む"
+                  title="加载 JSON 文件"
+                  aria-label="加载 JSON 文件"
                   onChange={(e) => handleFile(e.target.files?.[0] ?? null)}
                 />
 
@@ -1417,20 +1420,20 @@ export default function Home() {
                   {isServiceUnavailable ? (
                     <>
                       <p className="text-base font-semibold text-red-300">
-                        現在ご利用できません
+                        当前不可用
                       </p>
                       <p className="mt-2 text-sm text-zinc-400">
-                        サービス再開までお待ちください
+                        请等待服务恢复
                       </p>
                     </>
                   ) : (
                     <>
                       <p className="text-base font-semibold">
-                        購入済みの翻訳結果は、JSONファイルをアップロードすると再表示できます
+                        已购买的翻译结果可通过上传 JSON 文件重新显示
                       </p>
-                      <p className="mt-2 text-sm text-zinc-500">JSONをここにドラッグ</p>
+                      <p className="mt-2 text-sm text-zinc-500">将 JSON 文件拖到这里</p>
                       <p className="mt-2 text-sm text-zinc-500">
-                        またはクリックしてJSONファイルを選択
+                        或点击选择 JSON 文件
                       </p>
 
                       <button
@@ -1438,7 +1441,7 @@ export default function Home() {
                         onClick={() => fileInputRef.current?.click()}
                         className="mt-5 rounded-xl border border-zinc-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-zinc-800"
                       >
-                        JSONを読み込む
+                        加载 JSON
                       </button>
                     </>
                   )}
@@ -1447,7 +1450,7 @@ export default function Home() {
             ) : (
               <>
                 <div className="flex items-center justify-between gap-3">
-                  <h2 className="text-lg font-semibold">結果</h2>
+                  <h2 className="text-lg font-semibold">结果</h2>
 
                   <div className="flex items-center gap-2">
                     <button
@@ -1455,7 +1458,7 @@ export default function Home() {
                       onClick={handleOpenResetConfirm}
                       className="rounded-xl border border-red-500 px-4 py-2 text-sm font-semibold text-red-300 transition hover:bg-red-500/10"
                     >
-                      初期化
+                      初始化
                     </button>
 
                     <button
@@ -1463,7 +1466,7 @@ export default function Home() {
                       onClick={handleDownloadJson}
                       className="rounded-xl border border-zinc-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-zinc-800"
                     >
-                      JSONダウンロード
+                      下载 JSON
                     </button>
                   </div>
                 </div>
@@ -1515,7 +1518,7 @@ export default function Home() {
                             onClick={() => copyText(targetText, field.label)}
                             className="rounded-lg border border-zinc-700 px-3 py-1 text-xs text-zinc-300 transition hover:bg-zinc-800"
                           >
-                            コピー
+                            复制
                           </button>
                         </div>
 
@@ -1543,7 +1546,7 @@ export default function Home() {
 
                         {targetError ? (
                           <p className="mt-2 text-left text-xs text-red-400">
-                            エラー
+                            错误
                           </p>
                         ) : targetWarning ? (
                           <p className="mt-2 text-left text-xs text-amber-400">
@@ -1590,8 +1593,8 @@ export default function Home() {
               </div>
             </div>
 
-            <p className="mt-6 text-xl font-bold">翻訳中...</p>
-            <p className="mt-2 text-sm text-zinc-400">このままお待ちください</p>
+            <p className="mt-6 text-xl font-bold">正在翻译...</p>
+            <p className="mt-2 text-sm text-zinc-400">请稍候</p>
 
             <div className="mt-5 text-sm text-zinc-300">
               <p>{progressLabel}</p>
@@ -1609,12 +1612,12 @@ export default function Home() {
             <div className="flex items-start justify-between gap-4 border-b border-zinc-800 p-5">
               <div>
                 <h3 className="text-xl font-bold">
-                  {planMode === "single" ? "1フィールド翻訳" : "全フィールド翻訳"}
+                  {planMode === "single" ? "单字段翻译" : "全部字段翻译"}
                 </h3>
                 <p className="mt-2 text-sm text-zinc-400">
                   {planMode === "single"
-                    ? `対象: ${selectedFieldLabel}`
-                    : "対象: 全フィールド"}
+                    ? `目标：${selectedFieldLabel}`
+                    : "目标：全部字段"}
                 </p>
               </div>
 
@@ -1645,8 +1648,8 @@ export default function Home() {
                           </p>
                           <p className="mt-1 text-sm text-zinc-400">
                             {planMode === "single"
-                              ? "この項目だけ翻訳"
-                              : `${FIELD_LABELS.length}項目まとめて翻訳`}
+                              ? "仅翻译此项目"
+                              : `${FIELD_LABELS.length} 个项目一起翻译`}
                           </p>
                         </div>
                         <p className="text-lg font-bold">{displayPrice(plan)}</p>
@@ -1656,7 +1659,7 @@ export default function Home() {
                 </div>
 
                 <p className="mt-4 text-xs text-zinc-500">
-                  今はStripeテスト決済です。
+                  当前启用 Stripe 测试付款。
                 </p>
               </div>
             ) : null}
@@ -1665,14 +1668,14 @@ export default function Home() {
               <>
                 <div className="flex items-center justify-between border-b border-zinc-800 px-5 py-4">
                   <p className="text-sm text-zinc-300">
-                    言語を {selectedPlan.count} 個選択
+                    请选择 {selectedPlan.count} 种语言
                   </p>
                   <button
                     type="button"
                     onClick={() => setModalStep("plan")}
                     className="rounded-lg border border-zinc-700 px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-800"
                   >
-                    戻る
+                    返回
                   </button>
                 </div>
 
@@ -1699,7 +1702,7 @@ export default function Home() {
                           }`}
                         >
                           <span className="text-sm">{locale.label}</span>
-                          <span className="text-xs">{checked ? "選択中" : ""}</span>
+                          <span className="text-xs">{checked ? "已选择" : ""}</span>
                         </button>
                       );
                     })}
@@ -1734,7 +1737,7 @@ export default function Home() {
                               : "bg-zinc-700 text-zinc-400"
                           }`}
                         >
-                          {isCheckoutLoading ? "移動中..." : "決済へ進む"}
+                          {isCheckoutLoading ? "正在跳转..." : "前往付款"}
                         </button>
                       </div>
                     );
@@ -1749,12 +1752,12 @@ export default function Home() {
       {isResetConfirmOpen ? (
         <div className="fixed inset-0 z-[90] flex items-center justify-center bg-black/75 px-4">
           <div className="w-full max-w-md rounded-2xl border border-zinc-800 bg-zinc-900 p-6 shadow-2xl">
-            <h3 className="text-lg font-bold">初期化しますか？</h3>
+            <h3 className="text-lg font-bold">要初始化吗？</h3>
             <p className="mt-3 text-sm text-zinc-300">
-              JSONファイルはダウンロードしましたか？
+              已经下载 JSON 文件了吗？
             </p>
             <p className="mt-2 text-sm text-zinc-400">
-              初期化すると現在の結果は消えます。
+              初始化后，当前结果会被删除。
             </p>
 
             <div className="mt-6 flex justify-end gap-3">
@@ -1763,14 +1766,14 @@ export default function Home() {
                 onClick={closeResetConfirm}
                 className="rounded-xl border border-zinc-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-zinc-800"
               >
-                キャンセル
+                取消
               </button>
               <button
                 type="button"
                 onClick={handleResetAll}
                 className="rounded-xl bg-red-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-400"
               >
-                初期化する
+                初始化
               </button>
             </div>
           </div>
@@ -1782,14 +1785,14 @@ export default function Home() {
           <p>© 2026 StoreLocalizer</p>
 
           <div className="flex flex-wrap items-center gap-4">
-            <a href="/terms" className="transition hover:text-white">
-              利用規約
+            <a href="/zh-Hans/terms" className="transition hover:text-white">
+              使用条款
             </a>
-            <a href="/privacy" className="transition hover:text-white">
-              プライバシーポリシー
+            <a href="/zh-Hans/privacy" className="transition hover:text-white">
+              隐私政策
             </a>
-            <a href="/legal" className="transition hover:text-white">
-              特定商取引法に基づく表記
+            <a href="/zh-Hans/legal" className="transition hover:text-white">
+              特定商业交易法声明
             </a>
           </div>
         </div>

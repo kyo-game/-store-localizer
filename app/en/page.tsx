@@ -117,58 +117,58 @@ type ServiceStatusResponse = {
 const STORAGE_KEY = "storelocalizer_state_v1";
 
 const LOCALES: LocaleOption[] = [
-  { code: "ar-SA", label: "アラビア語 (サウジアラビア)" },
-  { code: "it", label: "イタリア語" },
-  { code: "id", label: "インドネシア語" },
-  { code: "uk", label: "ウクライナ語" },
-  { code: "nl-NL", label: "オランダ語" },
-  { code: "ca", label: "カタロニア語" },
-  { code: "el", label: "ギリシャ語" },
-  { code: "hr", label: "クロアチア語" },
-  { code: "sv", label: "スウェーデン語" },
-  { code: "es-ES", label: "スペイン語 (スペイン)" },
-  { code: "es-MX", label: "スペイン語 (メキシコ)" },
-  { code: "sk", label: "スロバキア語" },
-  { code: "th", label: "タイ語" },
-  { code: "cs", label: "チェコ語" },
-  { code: "da", label: "デンマーク語" },
-  { code: "de-DE", label: "ドイツ語" },
-  { code: "tr", label: "トルコ語" },
-  { code: "no", label: "ノルウェー語" },
-  { code: "hu", label: "ハンガリー語" },
-  { code: "hi", label: "ヒンディー語" },
-  { code: "fi", label: "フィンランド語" },
-  { code: "fr-FR", label: "フランス語 (フランス)" },
-  { code: "fr-CA", label: "フランス語 (カナダ)" },
-  { code: "vi", label: "ベトナム語" },
-  { code: "he", label: "ヘブライ語" },
-  { code: "pl", label: "ポーランド語" },
-  { code: "pt-BR", label: "ポルトガル語 (ブラジル)" },
-  { code: "pt-PT", label: "ポルトガル語 (ポルトガル)" },
-  { code: "ms", label: "マレー語" },
-  { code: "ro", label: "ルーマニア語" },
-  { code: "ru", label: "ロシア語" },
-  { code: "en-US", label: "英語 (アメリカ)" },
-  { code: "en-GB", label: "英語 (イギリス)" },
-  { code: "en-AU", label: "英語 (オーストラリア)" },
-  { code: "en-CA", label: "英語 (カナダ)" },
-  { code: "ko", label: "韓国語" },
-  { code: "zh-Hans", label: "中国語 (簡体字)" },
-  { code: "zh-Hant", label: "中国語 (繁体字)" },
-  { code: "ja", label: "日本語" },
+  { code: "ar-SA", label: "Arabic (Saudi Arabia)" },
+  { code: "ca", label: "Catalan" },
+  { code: "zh-Hans", label: "Chinese (Simplified)" },
+  { code: "zh-Hant", label: "Chinese (Traditional)" },
+  { code: "hr", label: "Croatian" },
+  { code: "cs", label: "Czech" },
+  { code: "da", label: "Danish" },
+  { code: "nl-NL", label: "Dutch" },
+  { code: "en-AU", label: "English (Australia)" },
+  { code: "en-CA", label: "English (Canada)" },
+  { code: "en-GB", label: "English (United Kingdom)" },
+  { code: "en-US", label: "English (United States)" },
+  { code: "fi", label: "Finnish" },
+  { code: "fr-CA", label: "French (Canada)" },
+  { code: "fr-FR", label: "French (France)" },
+  { code: "de-DE", label: "German" },
+  { code: "el", label: "Greek" },
+  { code: "he", label: "Hebrew" },
+  { code: "hi", label: "Hindi" },
+  { code: "hu", label: "Hungarian" },
+  { code: "id", label: "Indonesian" },
+  { code: "it", label: "Italian" },
+  { code: "ja", label: "Japanese" },
+  { code: "ko", label: "Korean" },
+  { code: "ms", label: "Malay" },
+  { code: "no", label: "Norwegian" },
+  { code: "pl", label: "Polish" },
+  { code: "pt-BR", label: "Portuguese (Brazil)" },
+  { code: "pt-PT", label: "Portuguese (Portugal)" },
+  { code: "ro", label: "Romanian" },
+  { code: "ru", label: "Russian" },
+  { code: "sk", label: "Slovak" },
+  { code: "es-MX", label: "Spanish (Mexico)" },
+  { code: "es-ES", label: "Spanish (Spain)" },
+  { code: "sv", label: "Swedish" },
+  { code: "th", label: "Thai" },
+  { code: "tr", label: "Turkish" },
+  { code: "uk", label: "Ukrainian" },
+  { code: "vi", label: "Vietnamese" },
 ];
 
 const FIELD_LABELS: { key: FieldKey; label: string; multiline?: boolean }[] = [
-  { key: "title", label: "タイトル" },
-  { key: "subtitle", label: "サブタイトル" },
-  { key: "promotionalText", label: "プロモーション用テキスト", multiline: true },
-  { key: "description", label: "概要", multiline: true },
-  { key: "keywords", label: "キーワード" },
-  { key: "whatsNew", label: "このバージョンの最新情報", multiline: true },
-  { key: "iapDisplayName", label: "IAP表示名" },
-  { key: "iapDescription", label: "IAP説明" },
-  { key: "subscriptionGroupDisplayName", label: "サブスクグループ表示名" },
-  { key: "subscriptionCustomName", label: "サブスクカスタム名" },
+  { key: "title", label: "Title" },
+  { key: "subtitle", label: "Subtitle" },
+  { key: "promotionalText", label: "Promotional Text", multiline: true },
+  { key: "description", label: "Description", multiline: true },
+  { key: "keywords", label: "Keywords" },
+  { key: "whatsNew", label: "What's New", multiline: true },
+  { key: "iapDisplayName", label: "IAP Display Name" },
+  { key: "iapDescription", label: "IAP Description" },
+  { key: "subscriptionGroupDisplayName", label: "Subscription Group Display Name" },
+  { key: "subscriptionCustomName", label: "Subscription Custom Name" },
 ];
 
 const FIELD_LIMITS: Record<FieldKey, number> = {
@@ -185,15 +185,15 @@ const FIELD_LIMITS: Record<FieldKey, number> = {
 };
 
 const SINGLE_FIELD_PLANS: PlanOption[] = [
-  { id: "single_3", name: "ライト", count: 3, countLabel: "3言語", priceJpy: "¥150", priceUsd: "$0.99" },
-  { id: "single_10", name: "スタンダード", count: 10, countLabel: "10言語", priceJpy: "¥390", priceUsd: "$2.99" },
-  { id: "single_all", name: "プロ", count: "all", countLabel: "全39言語", priceJpy: "¥860", priceUsd: "$6.99" },
+  { id: "single_3", name: "Light", count: 3, countLabel: "3 languages", priceJpy: "¥150", priceUsd: "$0.99" },
+  { id: "single_10", name: "Standard", count: 10, countLabel: "10 languages", priceJpy: "¥390", priceUsd: "$2.99" },
+  { id: "single_all", name: "Pro", count: "all", countLabel: "All 39 languages", priceJpy: "¥860", priceUsd: "$6.99" },
 ];
 
 const ALL_FIELD_PLANS: PlanOption[] = [
-  { id: "all_3", name: "ライト", count: 3, countLabel: "3言語", priceJpy: "¥590", priceUsd: "$4.00" },
-  { id: "all_10", name: "スタンダード", count: 10, countLabel: "10言語", priceJpy: "¥1480", priceUsd: "$9.99" },
-  { id: "all_all", name: "プロ", count: "all", countLabel: "全39言語", priceJpy: "¥2980", priceUsd: "$19.99" },
+  { id: "all_3", name: "Light", count: 3, countLabel: "3 languages", priceJpy: "¥590", priceUsd: "$4.00" },
+  { id: "all_10", name: "Standard", count: 10, countLabel: "10 languages", priceJpy: "¥1480", priceUsd: "$9.99" },
+  { id: "all_all", name: "Pro", count: "all", countLabel: "All 39 languages", priceJpy: "¥2980", priceUsd: "$19.99" },
 ];
 
 const KANA_RE = /[\u3040-\u30ff]/g;
@@ -240,7 +240,6 @@ const emptyFields = (): LocaleFields => ({
 
 function getOrderedLocales(codes: string[]) {
   const selected = new Set(codes);
-
   return LOCALES.map((x) => x.code).filter((code) => selected.has(code));
 }
 
@@ -295,8 +294,8 @@ function normalizeDetectedLocale(code: string) {
 }
 
 function getInitialSourceLocale() {
-  if (typeof navigator === "undefined") return "ja";
-  return normalizeDetectedLocale(navigator.language || "") || "ja";
+  if (typeof navigator === "undefined") return "en-US";
+  return normalizeDetectedLocale(navigator.language || "") || "en-US";
 }
 
 function isCreditInsufficientMessage(message: string) {
@@ -381,13 +380,14 @@ function shouldShowSourceLocaleMismatchConfirm(
 
   const selectedLabel =
     LOCALES.find((x) => x.code === selectedSourceLocale)?.label ?? selectedSourceLocale;
-  const likelyLabel = LOCALES.find((x) => x.code === likelyLocale)?.label ?? likelyLocale;
+  const likelyLabel =
+    LOCALES.find((x) => x.code === likelyLocale)?.label ?? likelyLocale;
 
   return {
     shouldConfirm: true,
     message:
-      `元言語が "${selectedLabel}" になっていますが、入力文は "${likelyLabel}" に見えます。\n\n` +
-      `このまま進みますか？`,
+      `Source language is set to "${selectedLabel}", but the input looks like "${likelyLabel}".\n\n` +
+      `Do you want to continue anyway?`,
   };
 }
 
@@ -407,8 +407,8 @@ export default function Home() {
   const [selectedField, setSelectedField] = useState<FieldKey | null>(null);
   const [selectedPlan, setSelectedPlan] = useState<PlanOption | null>(null);
   const [pendingLocales, setPendingLocales] = useState<string[]>([]);
-  const [purchaseStatus, setPurchaseStatus] = useState("未購入");
-  const [lastActionText, setLastActionText] = useState("まだ翻訳未実行");
+  const [purchaseStatus, setPurchaseStatus] = useState("Not purchased");
+  const [lastActionText, setLastActionText] = useState("No translation yet");
   const [purchasedPlan, setPurchasedPlan] = useState<PurchasedPlan | null>(null);
   const [copyMessage, setCopyMessage] = useState("");
   const [importMessage, setImportMessage] = useState("");
@@ -427,7 +427,7 @@ export default function Home() {
   const hasLoadedLocalRef = useRef(false);
 
   const isJapaneseUser = useMemo(() => {
-    if (typeof navigator === "undefined") return true;
+    if (typeof navigator === "undefined") return false;
     return navigator.language.toLowerCase().startsWith("ja");
   }, []);
 
@@ -466,8 +466,8 @@ export default function Home() {
 
       if (!data.enabled) {
         setIsServiceUnavailable(true);
-        setPurchaseStatus("停止中");
-        setLastActionText("現在ご利用できません");
+        setPurchaseStatus("Unavailable");
+        setLastActionText("Currently unavailable");
         return;
       }
 
@@ -490,11 +490,11 @@ export default function Home() {
     setProgressLabel("");
     setPurchasedPlan(null);
     setTargetLocale("");
-    setPurchaseStatus("停止中");
+    setPurchaseStatus("Unavailable");
     setLastActionText(
       cancelSucceeded
-        ? "翻訳に失敗したため、お支払いはキャンセルされました"
-        : "現在ご利用できません"
+        ? "Payment was canceled because translation failed"
+        : "Currently unavailable"
     );
   }
 
@@ -586,7 +586,7 @@ export default function Home() {
     if (mismatch.shouldConfirm) {
       const ok = window.confirm(mismatch.message);
       if (!ok) {
-        setLastActionText("翻訳をキャンセルしました");
+        setLastActionText("Translation canceled");
         return;
       }
     }
@@ -607,7 +607,7 @@ export default function Home() {
     if (mismatch.shouldConfirm) {
       const ok = window.confirm(mismatch.message);
       if (!ok) {
-        setLastActionText("翻訳をキャンセルしました");
+        setLastActionText("Translation canceled");
         return;
       }
     }
@@ -651,8 +651,8 @@ export default function Home() {
     setSelectedField(null);
     setSelectedPlan(null);
     setPendingLocales([]);
-    setPurchaseStatus("未購入");
-    setLastActionText("初期化しました");
+    setPurchaseStatus("Not purchased");
+    setLastActionText("Reset completed");
     setPurchasedPlan(null);
     setCopyMessage("");
     setImportMessage("");
@@ -668,12 +668,12 @@ export default function Home() {
   async function beginCheckout(plan: PlanOption, locales: string[]) {
     try {
       if (isServiceUnavailable) {
-        setLastActionText("現在ご利用できません");
+        setLastActionText("Currently unavailable");
         return;
       }
 
       setIsCheckoutLoading(true);
-      setLastActionText("決済ページへ移動中...");
+      setLastActionText("Redirecting to checkout...");
 
       const orderedLocales = getOrderedLocales(locales);
 
@@ -719,14 +719,14 @@ export default function Home() {
       window.location.href = data.url;
     } catch (error) {
       console.error(error);
-      setLastActionText("決済ページへの移動に失敗しました");
+      setLastActionText("Failed to open checkout page");
       setIsCheckoutLoading(false);
     }
   }
 
   function handlePlanSelect(plan: PlanOption) {
     if (isServiceUnavailable) {
-      setLastActionText("現在ご利用できません");
+      setLastActionText("Currently unavailable");
       return;
     }
 
@@ -756,7 +756,7 @@ export default function Home() {
         return prev;
       }
 
-      return [...prev, code];
+      return getOrderedLocales([...prev, code]);
     });
   }
 
@@ -774,7 +774,10 @@ export default function Home() {
       body: JSON.stringify({
         sourceLocale: sourceLocaleCode,
         sourceFields: sourceData,
-        purchasedPlan: plan,
+        purchasedPlan: {
+          ...plan,
+          selectedLocales: getOrderedLocales(plan.selectedLocales),
+        },
         sessionId,
       }),
     });
@@ -827,7 +830,7 @@ export default function Home() {
           selectedLocales: orderedLocales,
         });
         setTargetLocale(orderedLocales[0] ?? "");
-        setLastActionText("翻訳が完了しました");
+        setLastActionText("Translation completed");
         return;
       }
 
@@ -852,8 +855,8 @@ export default function Home() {
 
     const actionText =
       mode === "single"
-        ? `購入完了: ${plan.name} / ${plan.countLabel} / ${FIELD_LABELS.find((x) => x.key === fieldKey)?.label ?? ""}のみ`
-        : `購入完了: ${plan.name} / ${plan.countLabel} / 全フィールド`;
+        ? `Purchase completed: ${plan.name} / ${plan.countLabel} / ${FIELD_LABELS.find((x) => x.key === fieldKey)?.label ?? ""} only`
+        : `Purchase completed: ${plan.name} / ${plan.countLabel} / All fields`;
 
     const nextPlan: PurchasedPlan = {
       mode,
@@ -880,7 +883,7 @@ export default function Home() {
       return next;
     });
 
-    setPurchaseStatus("購入完了");
+    setPurchaseStatus("Purchased");
     setLastActionText(actionText);
     setPurchasedPlan(nextPlan);
     setTargetLocale(orderedLocales[0] ?? "");
@@ -905,7 +908,7 @@ export default function Home() {
       } else if (isCreditInsufficientMessage(message)) {
         markServiceUnavailable(true);
       } else {
-        setLastActionText("翻訳に失敗しました");
+        setLastActionText("Translation failed");
         setPurchasedPlan(null);
         setTargetLocale("");
       }
@@ -979,13 +982,13 @@ export default function Home() {
 
         if (parsed.purchasedPlan && typeof parsed.purchasedPlan === "object") {
           const restoredPlan = parsed.purchasedPlan as PurchasedPlan;
-          const orderedLocales = getOrderedLocales(restoredPlan.selectedLocales);
+          const orderedLocales = getOrderedLocales(restoredPlan.selectedLocales ?? []);
 
           setPurchasedPlan({
             ...restoredPlan,
             selectedLocales: orderedLocales,
           });
-          setPurchaseStatus("ローカル読込済み");
+          setPurchaseStatus("Loaded from local storage");
 
           if (parsed.targetLocale && orderedLocales.includes(parsed.targetLocale)) {
             setTargetLocale(parsed.targetLocale);
@@ -997,7 +1000,7 @@ export default function Home() {
         }
 
         if (parsed.sourceLocale || parsed.localizedData || parsed.purchasedPlan) {
-          setLastActionText("ローカル保存から復元しました");
+          setLastActionText("Restored from local storage");
         }
 
         hasLoadedLocalRef.current = true;
@@ -1040,9 +1043,9 @@ export default function Home() {
     setIsCheckoutLoading(false);
 
     if (checkout === "cancel") {
-      setPurchaseStatus("未購入");
-      setLastActionText("決済をキャンセルしました");
-      window.history.replaceState({}, "", "/");
+      setPurchaseStatus("Not purchased");
+      setLastActionText("Checkout canceled");
+      window.history.replaceState({}, "", "/en");
       sessionStorage.removeItem("pendingCheckout");
       return;
     }
@@ -1050,10 +1053,10 @@ export default function Home() {
     if (checkout === "success") {
       const raw = sessionStorage.getItem("pendingCheckout");
       sessionStorage.removeItem("pendingCheckout");
-      window.history.replaceState({}, "", "/");
+      window.history.replaceState({}, "", "/en");
 
       if (!raw) {
-        setLastActionText("決済後データの復元に失敗しました");
+        setLastActionText("Failed to restore post-checkout data");
         return;
       }
 
@@ -1062,12 +1065,12 @@ export default function Home() {
         const plan = findPlanById(pending.planId);
 
         if (!plan) {
-          setLastActionText("プラン情報の復元に失敗しました");
+          setLastActionText("Failed to restore plan information");
           return;
         }
 
         if (!pending.sessionId) {
-          setLastActionText("決済情報の復元に失敗しました");
+          setLastActionText("Failed to restore checkout information");
           return;
         }
 
@@ -1082,7 +1085,7 @@ export default function Home() {
         );
       } catch (error) {
         console.error(error);
-        setLastActionText("決済後データの復元に失敗しました");
+        setLastActionText("Failed to restore post-checkout data");
       }
     }
   }, []);
@@ -1103,9 +1106,9 @@ export default function Home() {
 
     try {
       await navigator.clipboard.writeText(text);
-      showCopyToast(`${label} をコピーしました`);
+      showCopyToast(`${label} copied`);
     } catch {
-      showCopyToast("コピーに失敗しました");
+      showCopyToast("Copy failed");
     }
   }
 
@@ -1217,11 +1220,11 @@ export default function Home() {
           : null
       );
       setTargetLocale(orderedLocales[0] ?? "");
-      setPurchaseStatus(nextPurchasedPlan ? "JSON読込済み" : "未購入");
-      setLastActionText("JSONから復元しました");
-      showImportToast("JSONを読み込みました");
+      setPurchaseStatus(nextPurchasedPlan ? "Loaded from JSON" : "Not purchased");
+      setLastActionText("Restored from JSON");
+      showImportToast("JSON loaded");
     } catch {
-      showImportToast("JSONの読込に失敗しました");
+      showImportToast("Failed to load JSON");
     }
   }
 
@@ -1241,23 +1244,23 @@ export default function Home() {
       <div className="mx-auto max-w-7xl px-6 py-10">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold">ストアローカライザー</h1>
+            <h1 className="text-3xl font-bold">Store Localizer</h1>
             <p className="mt-3 text-zinc-100">
-              App Store / Google Play 向け文面を、文字数制限内で多言語翻訳
+              Translate App Store / Google Play listing text within character limits
             </p>
             <p className="mt-2 text-sm text-zinc-400">
-              タイトル、サブタイトル、プロモーション用テキスト、概要、キーワード、最新情報、IAP表示名、IAP説明、サブスクグループ表示名、サブスクカスタム名をまとめて翻訳・保存・コピーできます
+              Translate, save, and copy Title, Subtitle, Promotional Text, Description, Keywords, What&apos;s New, IAP Display Name, IAP Description, Subscription Group Display Name, and Subscription Custom Name.
             </p>
             <div className="mt-2 flex items-center justify-between gap-4">
               <p className="text-sm text-zinc-400">
-                左で元言語を入力、翻訳後に右へ表示
+                Enter source text on the left, then view translated results on the right
               </p>
 
               <Link
-                href="/how-to"
+                href="/en/how-to"
                 className="shrink-0 rounded-xl border border-zinc-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-zinc-800"
               >
-                使い方
+                How to Use
               </Link>
             </div>
           </div>
@@ -1265,24 +1268,24 @@ export default function Home() {
 
         {isServiceUnavailable ? (
           <div className="mt-6 rounded-2xl border border-red-500 bg-red-500/10 px-5 py-4">
-            <p className="text-base font-bold text-red-300">現在ご利用できません</p>
+            <p className="text-base font-bold text-red-300">Currently unavailable</p>
             <p className="mt-1 text-sm text-red-200">
-              翻訳サービスは現在停止中です。
+              The translation service is currently unavailable.
             </p>
           </div>
         ) : null}
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           <section className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
-            <h2 className="text-lg font-semibold">入力</h2>
+            <h2 className="text-lg font-semibold">Input</h2>
 
             <div className="mt-4">
               <label htmlFor="source-locale" className="mb-2 block text-sm text-zinc-300">
-                元言語
+                Source Language
               </label>
               <select
                 id="source-locale"
-                title="元言語"
+                title="Source Language"
                 value={sourceLocale}
                 onChange={(e) => handleSourceLocaleChange(e.target.value)}
                 disabled={hasResult || isServiceUnavailable}
@@ -1363,7 +1366,7 @@ export default function Home() {
                           : "cursor-not-allowed bg-zinc-700 text-zinc-400"
                       }`}
                     >
-                      このフィールドのみ翻訳する
+                      Translate This Field Only
                     </button>
                   </div>
                 );
@@ -1379,7 +1382,7 @@ export default function Home() {
                     : "cursor-not-allowed bg-zinc-700 text-zinc-400"
                 }`}
               >
-                全フィールドを翻訳する
+                Translate All Fields
               </button>
             </div>
           </section>
@@ -1392,8 +1395,8 @@ export default function Home() {
                   type="file"
                   accept=".json,application/json"
                   className="hidden"
-                  title="JSONファイルを読み込む"
-                  aria-label="JSONファイルを読み込む"
+                  title="Load JSON file"
+                  aria-label="Load JSON file"
                   onChange={(e) => handleFile(e.target.files?.[0] ?? null)}
                 />
 
@@ -1417,20 +1420,20 @@ export default function Home() {
                   {isServiceUnavailable ? (
                     <>
                       <p className="text-base font-semibold text-red-300">
-                        現在ご利用できません
+                        Currently unavailable
                       </p>
                       <p className="mt-2 text-sm text-zinc-400">
-                        サービス再開までお待ちください
+                        Please wait until the service becomes available again
                       </p>
                     </>
                   ) : (
                     <>
                       <p className="text-base font-semibold">
-                        購入済みの翻訳結果は、JSONファイルをアップロードすると再表示できます
+                        Previously purchased translation results can be restored by uploading a JSON file
                       </p>
-                      <p className="mt-2 text-sm text-zinc-500">JSONをここにドラッグ</p>
+                      <p className="mt-2 text-sm text-zinc-500">Drag a JSON file here</p>
                       <p className="mt-2 text-sm text-zinc-500">
-                        またはクリックしてJSONファイルを選択
+                        or click to choose a JSON file
                       </p>
 
                       <button
@@ -1438,7 +1441,7 @@ export default function Home() {
                         onClick={() => fileInputRef.current?.click()}
                         className="mt-5 rounded-xl border border-zinc-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-zinc-800"
                       >
-                        JSONを読み込む
+                        Load JSON
                       </button>
                     </>
                   )}
@@ -1447,7 +1450,7 @@ export default function Home() {
             ) : (
               <>
                 <div className="flex items-center justify-between gap-3">
-                  <h2 className="text-lg font-semibold">結果</h2>
+                  <h2 className="text-lg font-semibold">Results</h2>
 
                   <div className="flex items-center gap-2">
                     <button
@@ -1455,7 +1458,7 @@ export default function Home() {
                       onClick={handleOpenResetConfirm}
                       className="rounded-xl border border-red-500 px-4 py-2 text-sm font-semibold text-red-300 transition hover:bg-red-500/10"
                     >
-                      初期化
+                      Reset
                     </button>
 
                     <button
@@ -1463,7 +1466,7 @@ export default function Home() {
                       onClick={handleDownloadJson}
                       className="rounded-xl border border-zinc-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-zinc-800"
                     >
-                      JSONダウンロード
+                      Download JSON
                     </button>
                   </div>
                 </div>
@@ -1515,7 +1518,7 @@ export default function Home() {
                             onClick={() => copyText(targetText, field.label)}
                             className="rounded-lg border border-zinc-700 px-3 py-1 text-xs text-zinc-300 transition hover:bg-zinc-800"
                           >
-                            コピー
+                            Copy
                           </button>
                         </div>
 
@@ -1543,11 +1546,11 @@ export default function Home() {
 
                         {targetError ? (
                           <p className="mt-2 text-left text-xs text-red-400">
-                            エラー
+                            Error
                           </p>
                         ) : targetWarning ? (
                           <p className="mt-2 text-left text-xs text-amber-400">
-                            注意
+                            Warning
                           </p>
                         ) : null}
 
@@ -1590,8 +1593,8 @@ export default function Home() {
               </div>
             </div>
 
-            <p className="mt-6 text-xl font-bold">翻訳中...</p>
-            <p className="mt-2 text-sm text-zinc-400">このままお待ちください</p>
+            <p className="mt-6 text-xl font-bold">Translating...</p>
+            <p className="mt-2 text-sm text-zinc-400">Please wait</p>
 
             <div className="mt-5 text-sm text-zinc-300">
               <p>{progressLabel}</p>
@@ -1609,12 +1612,12 @@ export default function Home() {
             <div className="flex items-start justify-between gap-4 border-b border-zinc-800 p-5">
               <div>
                 <h3 className="text-xl font-bold">
-                  {planMode === "single" ? "1フィールド翻訳" : "全フィールド翻訳"}
+                  {planMode === "single" ? "Single Field Translation" : "All Fields Translation"}
                 </h3>
                 <p className="mt-2 text-sm text-zinc-400">
                   {planMode === "single"
-                    ? `対象: ${selectedFieldLabel}`
-                    : "対象: 全フィールド"}
+                    ? `Target: ${selectedFieldLabel}`
+                    : "Target: All fields"}
                 </p>
               </div>
 
@@ -1645,8 +1648,8 @@ export default function Home() {
                           </p>
                           <p className="mt-1 text-sm text-zinc-400">
                             {planMode === "single"
-                              ? "この項目だけ翻訳"
-                              : `${FIELD_LABELS.length}項目まとめて翻訳`}
+                              ? "Translate this field only"
+                              : `${FIELD_LABELS.length} fields translated together`}
                           </p>
                         </div>
                         <p className="text-lg font-bold">{displayPrice(plan)}</p>
@@ -1656,7 +1659,7 @@ export default function Home() {
                 </div>
 
                 <p className="mt-4 text-xs text-zinc-500">
-                  今はStripeテスト決済です。
+                  Stripe test checkout is currently enabled.
                 </p>
               </div>
             ) : null}
@@ -1665,14 +1668,14 @@ export default function Home() {
               <>
                 <div className="flex items-center justify-between border-b border-zinc-800 px-5 py-4">
                   <p className="text-sm text-zinc-300">
-                    言語を {selectedPlan.count} 個選択
+                    Select {selectedPlan.count} languages
                   </p>
                   <button
                     type="button"
                     onClick={() => setModalStep("plan")}
                     className="rounded-lg border border-zinc-700 px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-800"
                   >
-                    戻る
+                    Back
                   </button>
                 </div>
 
@@ -1699,7 +1702,7 @@ export default function Home() {
                           }`}
                         >
                           <span className="text-sm">{locale.label}</span>
-                          <span className="text-xs">{checked ? "選択中" : ""}</span>
+                          <span className="text-xs">{checked ? "Selected" : ""}</span>
                         </button>
                       );
                     })}
@@ -1734,7 +1737,7 @@ export default function Home() {
                               : "bg-zinc-700 text-zinc-400"
                           }`}
                         >
-                          {isCheckoutLoading ? "移動中..." : "決済へ進む"}
+                          {isCheckoutLoading ? "Loading..." : "Proceed to Checkout"}
                         </button>
                       </div>
                     );
@@ -1749,12 +1752,12 @@ export default function Home() {
       {isResetConfirmOpen ? (
         <div className="fixed inset-0 z-[90] flex items-center justify-center bg-black/75 px-4">
           <div className="w-full max-w-md rounded-2xl border border-zinc-800 bg-zinc-900 p-6 shadow-2xl">
-            <h3 className="text-lg font-bold">初期化しますか？</h3>
+            <h3 className="text-lg font-bold">Reset everything?</h3>
             <p className="mt-3 text-sm text-zinc-300">
-              JSONファイルはダウンロードしましたか？
+              Have you downloaded your JSON file?
             </p>
             <p className="mt-2 text-sm text-zinc-400">
-              初期化すると現在の結果は消えます。
+              Resetting will delete your current results.
             </p>
 
             <div className="mt-6 flex justify-end gap-3">
@@ -1763,14 +1766,14 @@ export default function Home() {
                 onClick={closeResetConfirm}
                 className="rounded-xl border border-zinc-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-zinc-800"
               >
-                キャンセル
+                Cancel
               </button>
               <button
                 type="button"
                 onClick={handleResetAll}
                 className="rounded-xl bg-red-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-400"
               >
-                初期化する
+                Reset
               </button>
             </div>
           </div>
@@ -1782,14 +1785,14 @@ export default function Home() {
           <p>© 2026 StoreLocalizer</p>
 
           <div className="flex flex-wrap items-center gap-4">
-            <a href="/terms" className="transition hover:text-white">
-              利用規約
+            <a href="/en/terms" className="transition hover:text-white">
+              Terms
             </a>
-            <a href="/privacy" className="transition hover:text-white">
-              プライバシーポリシー
+            <a href="/en/privacy" className="transition hover:text-white">
+              Privacy Policy
             </a>
-            <a href="/legal" className="transition hover:text-white">
-              特定商取引法に基づく表記
+            <a href="/en/legal" className="transition hover:text-white">
+              Legal Notice
             </a>
           </div>
         </div>
