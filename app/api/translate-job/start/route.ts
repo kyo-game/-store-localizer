@@ -143,9 +143,7 @@ function shouldUseTitleContext(fieldKey: FieldKey) {
 }
 
 function isCreditInsufficientError(error: unknown): boolean {
-  const message =
-    error instanceof Error ? error.message : String(error ?? "");
-
+  const message = error instanceof Error ? error.message : String(error ?? "");
   const lower = message.toLowerCase();
 
   return (
@@ -243,7 +241,6 @@ async function runJob(body: StartBody, jobId: string) {
 
     for (const locale of targetLocales) {
       const localeResult = getEmptyLocaleFields();
-
       let translatedTitleForContext = "";
 
       if (sourceTitle && !targetFields.includes("title")) {
@@ -254,10 +251,7 @@ async function runJob(body: StartBody, jobId: string) {
             sourceTitle,
           });
         } catch (error) {
-          console.error(
-            `hidden title context translation failed: ${locale}`,
-            error
-          );
+          console.error(`hidden title context translation failed: ${locale}`, error);
 
           if (isCreditInsufficientError(error)) {
             fieldErrors.push(
@@ -279,14 +273,14 @@ async function runJob(body: StartBody, jobId: string) {
 
         if (!sourceText) {
           done += 1;
-          updateJob(jobId, {
+          await updateJob(jobId, {
             done,
             progressLabel: `${locale} / ${FIELD_LABELS[fieldKey]}`,
           });
           continue;
         }
 
-        updateJob(jobId, {
+        await updateJob(jobId, {
           progressLabel: `${locale} / ${FIELD_LABELS[fieldKey]}`,
         });
 
@@ -337,7 +331,7 @@ async function runJob(body: StartBody, jobId: string) {
         }
 
         done += 1;
-        updateJob(jobId, {
+        await updateJob(jobId, {
           done,
           progressLabel: `${locale} / ${FIELD_LABELS[fieldKey]}`,
         });
@@ -374,7 +368,7 @@ async function runJob(body: StartBody, jobId: string) {
         cancelErrorMessage = "sessionId is missing";
       }
 
-      updateJob(jobId, {
+      await updateJob(jobId, {
         status: "failed",
         done,
         progressLabel: "credit_insufficient",
@@ -382,9 +376,7 @@ async function runJob(body: StartBody, jobId: string) {
         error: [
           "CREDIT_INSUFFICIENT",
           fieldErrors.join("\n"),
-          cancelErrorMessage
-            ? `PAYMENT_CANCEL_FAILED: ${cancelErrorMessage}`
-            : "",
+          cancelErrorMessage ? `PAYMENT_CANCEL_FAILED: ${cancelErrorMessage}` : "",
         ]
           .filter(Boolean)
           .join("\n"),
@@ -393,7 +385,7 @@ async function runJob(body: StartBody, jobId: string) {
     }
 
     if (!sessionId) {
-      updateJob(jobId, {
+      await updateJob(jobId, {
         status: "failed",
         done,
         progressLabel: "capture_failed",
@@ -408,7 +400,7 @@ async function runJob(body: StartBody, jobId: string) {
     } catch (captureError) {
       console.error("payment_intent capture failed:", captureError);
 
-      updateJob(jobId, {
+      await updateJob(jobId, {
         status: "failed",
         done,
         progressLabel: "capture_failed",
@@ -422,7 +414,7 @@ async function runJob(body: StartBody, jobId: string) {
       return;
     }
 
-    updateJob(jobId, {
+    await updateJob(jobId, {
       status: "completed",
       done: total,
       progressLabel: "completed",
@@ -431,7 +423,7 @@ async function runJob(body: StartBody, jobId: string) {
     });
   } catch (error) {
     console.error("translate-job failed:", error);
-    failJob(
+    await failJob(
       jobId,
       error instanceof Error ? error.message : "Translation failed"
     );
@@ -440,7 +432,7 @@ async function runJob(body: StartBody, jobId: string) {
 
 export async function POST(req: NextRequest) {
   try {
-    cleanupOldJobs();
+    await cleanupOldJobs();
 
     if (process.env.TRANSLATION_SERVICE_ENABLED !== "true") {
       return NextResponse.json(
@@ -475,10 +467,7 @@ export async function POST(req: NextRequest) {
     }
 
     if (!sessionId) {
-      return NextResponse.json(
-        { error: "Missing sessionId" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Missing sessionId" }, { status: 400 });
     }
 
     const selectedLocales = Array.isArray(purchasedPlan.selectedLocales)
@@ -565,7 +554,7 @@ export async function POST(req: NextRequest) {
 
     const total = selectedLocales.length * targetFields.length;
 
-    const job = createJob({
+    const job = await createJob({
       total,
       progressLabel: "starting",
     });

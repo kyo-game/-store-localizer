@@ -1,5 +1,7 @@
 // app/api/translate-job/_store.ts
 
+import { Redis } from "@upstash/redis";
+
 type JobStatus = "processing" | "completed" | "failed";
 
 type FieldKey =
@@ -53,13 +55,19 @@ export type TranslationJobState = {
   updatedAt: number;
 };
 
-const jobs = new Map<string, TranslationJobState>();
+const redis = Redis.fromEnv();
+const JOB_KEY_PREFIX = "store-localizer:translation-job:";
+const JOB_TTL_SECONDS = 60 * 60 * 6;
 
 function now() {
   return Date.now();
 }
 
-export function createJob(params: {
+function jobKey(jobId: string) {
+  return `${JOB_KEY_PREFIX}${jobId}`;
+}
+
+export async function createJob(params: {
   total: number;
   progressLabel?: string;
 }) {
@@ -75,19 +83,20 @@ export function createJob(params: {
     updatedAt: now(),
   };
 
-  jobs.set(jobId, job);
+  await redis.set(jobKey(jobId), job, { ex: JOB_TTL_SECONDS });
   return job;
 }
 
-export function getJob(jobId: string) {
-  return jobs.get(jobId) ?? null;
+export async function getJob(jobId: string) {
+  const job = await redis.get<TranslationJobState>(jobKey(jobId));
+  return job ?? null;
 }
 
-export function updateJob(
+export async function updateJob(
   jobId: string,
   patch: Partial<Omit<TranslationJobState, "jobId" | "createdAt">>
 ) {
-  const current = jobs.get(jobId);
+  const current = await getJob(jobId);
   if (!current) return null;
 
   const next: TranslationJobState = {
@@ -96,12 +105,12 @@ export function updateJob(
     updatedAt: now(),
   };
 
-  jobs.set(jobId, next);
+  await redis.set(jobKey(jobId), next, { ex: JOB_TTL_SECONDS });
   return next;
 }
 
-export function completeJob(jobId: string, result: TranslationJobResult) {
-  const current = jobs.get(jobId);
+export async function completeJob(jobId: string, result: TranslationJobResult) {
+  const current = await getJob(jobId);
   if (!current) return null;
 
   return updateJob(jobId, {
@@ -113,23 +122,17 @@ export function completeJob(jobId: string, result: TranslationJobResult) {
   });
 }
 
-export function failJob(jobId: string, error: string) {
+export async function failJob(jobId: string, error: string) {
   return updateJob(jobId, {
     status: "failed",
     error,
   });
 }
 
-export function deleteJob(jobId: string) {
-  jobs.delete(jobId);
+export async function deleteJob(jobId: string) {
+  await redis.del(jobKey(jobId));
 }
 
-export function cleanupOldJobs(maxAgeMs = 1000 * 60 * 60) {
-  const cutoff = now() - maxAgeMs;
-
-  for (const [jobId, job] of jobs.entries()) {
-    if (job.updatedAt < cutoff) {
-      jobs.delete(jobId);
-    }
-  }
+export async function cleanupOldJobs() {
+  return;
 }
