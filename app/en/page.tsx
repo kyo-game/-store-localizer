@@ -187,13 +187,13 @@ const FIELD_LIMITS: Record<FieldKey, number> = {
 const SINGLE_FIELD_PLANS: PlanOption[] = [
   { id: "single_3", name: "Light", count: 3, countLabel: "3 languages", priceJpy: "¥150", priceUsd: "$0.99" },
   { id: "single_10", name: "Standard", count: 10, countLabel: "10 languages", priceJpy: "¥390", priceUsd: "$2.99" },
-  { id: "single_all", name: "Pro", count: "all", countLabel: "All 39 languages", priceJpy: "¥860", priceUsd: "$6.99" },
+  { id: "single_all", name: "Pro", count: "all", countLabel: "All 38 languages", priceJpy: "¥860", priceUsd: "$6.99" },
 ];
 
 const ALL_FIELD_PLANS: PlanOption[] = [
   { id: "all_3", name: "Light", count: 3, countLabel: "3 languages", priceJpy: "¥590", priceUsd: "$4.00" },
   { id: "all_10", name: "Standard", count: 10, countLabel: "10 languages", priceJpy: "¥1480", priceUsd: "$9.99" },
-  { id: "all_all", name: "Pro", count: "all", countLabel: "All 39 languages", priceJpy: "¥2980", priceUsd: "$19.99" },
+  { id: "all_all", name: "Pro", count: "all", countLabel: "All 38 languages", priceJpy: "¥2980", priceUsd: "$19.99" },
 ];
 
 const KANA_RE = /[\u3040-\u30ff]/g;

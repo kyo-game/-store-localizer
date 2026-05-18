@@ -76,6 +76,12 @@ const FIELD_LIMITS: Record<FieldKey, number> = {
   subscriptionCustomName: 30,
 };
 
+const REGIONAL_FALLBACK_LOCALES: Record<string, string> = {
+  "es-MX": "es-ES",
+  "fr-CA": "fr-FR",
+  "pt-BR": "pt-PT",
+};
+
 function isFieldKey(value: unknown): value is FieldKey {
   return typeof value === "string" && value in FIELD_LIMITS;
 }
@@ -140,6 +146,42 @@ function orderTargetFields(fields: FieldKey[]) {
 
 function shouldUseTitleContext(fieldKey: FieldKey) {
   return fieldKey !== "title" && fieldKey !== "keywords";
+}
+
+function shouldReplaceWithRegionalFallback(field: TranslatedField) {
+  return field.error || !field.text.trim();
+}
+
+function applyRegionalFallbacks(
+  results: Record<string, LocaleFields>,
+  targetFields: FieldKey[],
+  fieldErrors: string[]
+) {
+  for (const [targetLocale, fallbackLocale] of Object.entries(REGIONAL_FALLBACK_LOCALES)) {
+    const target = results[targetLocale];
+    const fallback = results[fallbackLocale];
+
+    if (!target || !fallback) continue;
+
+    for (const fieldKey of targetFields) {
+      const targetField = target[fieldKey];
+      const fallbackField = fallback[fieldKey];
+
+      if (!shouldReplaceWithRegionalFallback(targetField)) continue;
+      if (!fallbackField.text.trim()) continue;
+      if (fallbackField.error) continue;
+
+      target[fieldKey] = {
+        text: fallbackField.text,
+        warning: true,
+        error: false,
+      };
+
+      fieldErrors.push(
+        `[REGIONAL_FALLBACK] ${targetLocale} / ${fieldKey}: used ${fallbackLocale}`
+      );
+    }
+  }
 }
 
 function isCreditInsufficientError(error: unknown): boolean {
@@ -280,10 +322,6 @@ async function runJob(body: StartBody, jobId: string) {
           continue;
         }
 
-        await updateJob(jobId, {
-          progressLabel: `${locale} / ${FIELD_LABELS[fieldKey]}`,
-        });
-
         try {
           const translated = await translateWithinLimit({
             sourceLocale,
@@ -343,6 +381,8 @@ async function runJob(body: StartBody, jobId: string) {
         break;
       }
     }
+
+    applyRegionalFallbacks(results, targetFields, fieldErrors);
 
     const result: TranslationJobResult = {
       sourceLocale,
