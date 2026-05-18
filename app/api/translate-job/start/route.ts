@@ -50,6 +50,13 @@ type StartBody = {
   sessionId?: string;
 };
 
+type LocaleProcessResult = {
+  locale: string;
+  localeResult: LocaleFields;
+  fieldErrors: string[];
+  creditInsufficientDetected: boolean;
+};
+
 const FIELD_LABELS: Record<FieldKey, string> = {
   title: "タイトル",
   subtitle: "サブタイトル",
@@ -152,12 +159,28 @@ function shouldReplaceWithRegionalFallback(field: TranslatedField) {
   return field.error || !field.text.trim();
 }
 
+function shouldUseParallelLocales(purchasedPlan: StartBody["purchasedPlan"]) {
+  return purchasedPlan.planId === "all_10" || purchasedPlan.planId === "all_all";
+}
+
+function chunkArray<T>(items: T[], size: number) {
+  const chunks: T[][] = [];
+
+  for (let i = 0; i < items.length; i += size) {
+    chunks.push(items.slice(i, i + size));
+  }
+
+  return chunks;
+}
+
 function applyRegionalFallbacks(
   results: Record<string, LocaleFields>,
   targetFields: FieldKey[],
   fieldErrors: string[]
 ) {
-  for (const [targetLocale, fallbackLocale] of Object.entries(REGIONAL_FALLBACK_LOCALES)) {
+  for (const [targetLocale, fallbackLocale] of Object.entries(
+    REGIONAL_FALLBACK_LOCALES
+  )) {
     const target = results[targetLocale];
     const fallback = results[fallbackLocale];
 
@@ -281,9 +304,11 @@ async function runJob(body: StartBody, jobId: string) {
     const total = targetLocales.length * targetFields.length;
     let creditInsufficientDetected = false;
 
-    for (const locale of targetLocales) {
+    async function processLocale(locale: string): Promise<LocaleProcessResult> {
       const localeResult = getEmptyLocaleFields();
+      const localeFieldErrors: string[] = [];
       let translatedTitleForContext = "";
+      let localeCreditInsufficientDetected = false;
 
       if (sourceTitle && !targetFields.includes("title")) {
         try {
@@ -296,16 +321,22 @@ async function runJob(body: StartBody, jobId: string) {
           console.error(`hidden title context translation failed: ${locale}`, error);
 
           if (isCreditInsufficientError(error)) {
-            fieldErrors.push(
+            localeFieldErrors.push(
               formatFieldError({
                 locale,
                 fieldKey: "title",
                 error,
               })
             );
-            creditInsufficientDetected = true;
-            results[locale] = localeResult;
-            break;
+
+            localeCreditInsufficientDetected = true;
+
+            return {
+              locale,
+              localeResult,
+              fieldErrors: localeFieldErrors,
+              creditInsufficientDetected: localeCreditInsufficientDetected,
+            };
           }
         }
       }
@@ -351,7 +382,7 @@ async function runJob(body: StartBody, jobId: string) {
           }
 
           if (translated.error) {
-            fieldErrors.push(
+            localeFieldErrors.push(
               `[TRANSLATION_ERROR_FALLBACK] ${locale} / ${fieldKey}: returned English fallback`
             );
           }
@@ -359,11 +390,11 @@ async function runJob(body: StartBody, jobId: string) {
           const formatted = formatFieldError({ locale, fieldKey, error });
           console.error(`translate failed: ${locale} / ${fieldKey}`, error);
 
-          fieldErrors.push(formatted);
+          localeFieldErrors.push(formatted);
           localeResult[fieldKey] = getErrorTranslatedField();
 
           if (isCreditInsufficientError(error)) {
-            creditInsufficientDetected = true;
+            localeCreditInsufficientDetected = true;
             break;
           }
         }
@@ -375,10 +406,46 @@ async function runJob(body: StartBody, jobId: string) {
         });
       }
 
-      results[locale] = localeResult;
+      return {
+        locale,
+        localeResult,
+        fieldErrors: localeFieldErrors,
+        creditInsufficientDetected: localeCreditInsufficientDetected,
+      };
+    }
 
-      if (creditInsufficientDetected) {
-        break;
+    if (shouldUseParallelLocales(purchasedPlan)) {
+      const localeChunks = chunkArray(targetLocales, 2);
+
+      for (const chunk of localeChunks) {
+        const chunkResults = await Promise.all(
+          chunk.map((locale) => processLocale(locale))
+        );
+
+        for (const item of chunkResults) {
+          results[item.locale] = item.localeResult;
+          fieldErrors.push(...item.fieldErrors);
+
+          if (item.creditInsufficientDetected) {
+            creditInsufficientDetected = true;
+          }
+        }
+
+        if (creditInsufficientDetected) {
+          break;
+        }
+      }
+    } else {
+      for (const locale of targetLocales) {
+        const item = await processLocale(locale);
+
+        results[item.locale] = item.localeResult;
+        fieldErrors.push(...item.fieldErrors);
+
+        if (item.creditInsufficientDetected) {
+          creditInsufficientDetected = true;
+          break;
+        }
       }
     }
 
