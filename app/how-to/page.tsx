@@ -14,36 +14,57 @@ export default function HowToPage() {
           <ol className="mt-4 space-y-3 text-white/85">
             <li>1. 左側で元言語を選び、各フィールドに原文を入力します。</li>
             <li>2. 翻訳したいプランと言語を選びます。</li>
-            <li>3. 翻訳を実行すると、結果が右側に表示されます。</li>
-            <li>4. 各言語タブを開いて内容を確認し、必要に応じてコピーします。</li>
-            <li>5. JSONファイルをダウンロードしておけば、あとでアップロードして過去の翻訳結果を再表示できます。</li>
+            <li>3. 決済後、翻訳が自動で開始されます。</li>
+            <li>4. 翻訳が完了すると、結果が右側に表示されます。</li>
+            <li>5. 各言語タブを開いて内容を確認し、必要に応じてコピーします。</li>
+            <li>6. JSONファイルをダウンロードして保存してください。あとでアップロードすると翻訳結果を再表示できます。</li>
           </ol>
+        </section>
+
+        <section className="mt-8 rounded-2xl border border-sky-500/20 bg-sky-500/5 p-6">
+          <h2 className="text-2xl font-semibold text-sky-300">翻訳完了までの時間</h2>
+          <ul className="mt-4 space-y-3 text-white/85">
+            <li>・翻訳する言語数や入力文の長さによって、完了まで時間がかかる場合があります。</li>
+            <li>・全フィールド・全言語の翻訳では、数十分ほどかかることがあります。</li>
+            <li>・翻訳中は進捗が表示されます。そのままお待ちください。</li>
+            <li>・短いプランや入力量が少ない場合は、比較的早く完了します。</li>
+          </ul>
+        </section>
+
+        <section className="mt-8 rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-6">
+          <h2 className="text-2xl font-semibold text-emerald-300">ブラウザを閉じた場合</h2>
+          <ul className="mt-4 space-y-3 text-white/85">
+            <li>・翻訳開始後は、ブラウザを閉じてもサーバー側で処理が続きます。</li>
+            <li>・同じブラウザで24時間以内に戻ると、進行中または完了済みの翻訳結果を復帰できます。</li>
+            <li>・24時間を過ぎると復帰できない場合があります。</li>
+            <li>・翻訳完了後は、必ずJSONファイルをダウンロードして保存してください。</li>
+          </ul>
         </section>
 
         <section className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
           <h2 className="text-2xl font-semibold">対応フィールド</h2>
-          <div className="mt-4 grid gap-3 sm:grid-cols-2 text-white/85">
-            <div>・タイトル</div>
-            <div>・サブタイトル</div>
-            <div>・プロモーション用テキスト</div>
-            <div>・概要</div>
-            <div>・キーワード</div>
-            <div>・最新情報</div>
-            <div>・IAP表示名</div>
-            <div>・IAP説明</div>
-            <div>・サブスクグループ表示名</div>
-            <div>・サブスクカスタム名</div>
+          <div className="mt-4 grid gap-3 text-white/85 sm:grid-cols-2">
+            <div>- タイトル</div>
+            <div>- サブタイトル</div>
+            <div>- プロモーション用テキスト</div>
+            <div>- 概要</div>
+            <div>- キーワード</div>
+            <div>- 最新情報</div>
+            <div>- IAP表示名</div>
+            <div>- IAP説明</div>
+            <div>- サブスクグループ表示名</div>
+            <div>- サブスクカスタム名</div>
           </div>
         </section>
 
         <section className="mt-8 rounded-2xl border border-yellow-500/20 bg-yellow-500/5 p-6">
           <h2 className="text-2xl font-semibold text-yellow-300">注意</h2>
           <ul className="mt-4 space-y-3 text-white/85">
-            <li>・短い文字数制限のある項目では、意味を保ったまま短縮が優先されます。</li>
-            <li>・言語によっては、日本語より長くなりやすく、完全に同じニュアンスを収めにくい場合があります。</li>
-            <li>・タイトルやサブタイトルでは、文字数制限の都合で表現がやや圧縮されることがあります。</li>
-            <li>・キーワード欄では、検索性の都合上、英語キーワードが混在していても問題扱いしない場合があります。</li>
-            <li>・翻訳結果は公開前に必ず人の目で確認してください。</li>
+            <li>- 短い文字数制限のある項目では、意味を保ったまま短縮が優先されます。</li>
+            <li>- 言語によっては、日本語より長くなりやすく、完全に同じニュアンスを収めにくい場合があります。</li>
+            <li>- タイトルやサブタイトルでは、文字数制限の都合で表現がやや圧縮されることがあります。</li>
+            <li>- キーワード欄では、検索性の都合上、英語キーワードが混在していても問題扱いしない場合があります。</li>
+            <li>- 翻訳結果は公開前に必ず人の目で確認してください。</li>
           </ul>
         </section>
 
@@ -56,9 +77,9 @@ export default function HowToPage() {
               翻訳自体は成立しているものの、軽い違和感や圧縮による意味の揺れがある可能性を示します。
             </p>
             <ul className="mt-3 space-y-2 text-white/75">
-              <li>・短縮の影響で表現が少し不自然</li>
-              <li>・文字数制限のため一部の情報を落としている</li>
-              <li>・意味は大きく崩れていないが、少し気になる表現がある</li>
+              <li>- 短縮の影響で表現が少し不自然</li>
+              <li>- 文字数制限のため一部の情報を落としている</li>
+              <li>- 意味は大きく崩れていないが、少し気になる表現がある</li>
             </ul>
             <p className="mt-3 text-sm text-white/60">
               warning が出た場合は、そのまま使う前に内容確認をおすすめします。
@@ -71,10 +92,10 @@ export default function HowToPage() {
               その言語で安全に採用しにくいと判断された結果です。致命的な問題がある場合、英語フォールバックになることがあります。
             </p>
             <ul className="mt-3 space-y-2 text-white/75">
-              <li>・文字数制限内に自然に収まらない</li>
-              <li>・途中で切れたような不自然な文末</li>
-              <li>・別言語の混入やスクリプト混在</li>
-              <li>・意味ズレが大きい</li>
+              <li>- 文字数制限内に自然に収まらない</li>
+              <li>- 途中で切れたような不自然な文末</li>
+              <li>- 別言語の混入やスクリプト混在</li>
+              <li>- 意味ズレが大きい</li>
             </ul>
             <p className="mt-3 text-sm text-white/60">
               error が出た場合は、その結果をそのまま公開せず、手動で調整してください。
@@ -85,6 +106,24 @@ export default function HowToPage() {
         <section className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
           <h2 className="text-2xl font-semibold">よくあるケース</h2>
           <div className="mt-4 space-y-4 text-white/85">
+            <div>
+              <p className="font-medium">Q. 翻訳に時間がかかります</p>
+              <p className="mt-1 text-white/70">
+                A. 全フィールド・多言語翻訳では時間がかかります。ブラウザを閉じても24時間以内なら復帰できます。
+              </p>
+            </div>
+            <div>
+              <p className="font-medium">Q. 途中でブラウザを閉じても大丈夫ですか？</p>
+              <p className="mt-1 text-white/70">
+                A. 翻訳開始後であれば処理は続きます。同じブラウザで24時間以内に戻ると結果を復帰できます。
+              </p>
+            </div>
+            <div>
+              <p className="font-medium">Q. 完了後は何をすればいいですか？</p>
+              <p className="mt-1 text-white/70">
+                A. 必ずJSONファイルをダウンロードして保存してください。後日、JSONをアップロードすると結果を再表示できます。
+              </p>
+            </div>
             <div>
               <p className="font-medium">Q. 一部の言語だけ英語になりました</p>
               <p className="mt-1 text-white/70">

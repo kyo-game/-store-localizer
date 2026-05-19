@@ -14,15 +14,36 @@ export default function EnHowToPage() {
           <ol className="mt-4 space-y-3 text-white/85">
             <li>1. Select your source language on the left and enter your original store text.</li>
             <li>2. Choose a plan and the languages you want to translate into.</li>
-            <li>3. Run the translation and the results will appear on the right.</li>
-            <li>4. Review each language tab and copy any field you want to use.</li>
-            <li>5. Download the JSON file if you want to restore these translation results later by uploading it again.</li>
+            <li>3. After checkout, translation starts automatically.</li>
+            <li>4. When translation is complete, the results will appear on the right.</li>
+            <li>5. Review each language tab and copy any field you want to use.</li>
+            <li>6. Download and save the JSON file. You can upload it later to restore your translation results.</li>
           </ol>
+        </section>
+
+        <section className="mt-8 rounded-2xl border border-sky-500/20 bg-sky-500/5 p-6">
+          <h2 className="text-2xl font-semibold text-sky-300">Completion Time</h2>
+          <ul className="mt-4 space-y-3 text-white/85">
+            <li>- Completion time depends on the number of languages and the amount of source text.</li>
+            <li>- Translating all fields into all languages may take several tens of minutes.</li>
+            <li>- Progress is shown while translation is running. Please wait until it finishes.</li>
+            <li>- Smaller plans or shorter input text usually finish faster.</li>
+          </ul>
+        </section>
+
+        <section className="mt-8 rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-6">
+          <h2 className="text-2xl font-semibold text-emerald-300">If You Close the Browser</h2>
+          <ul className="mt-4 space-y-3 text-white/85">
+            <li>- After translation starts, processing continues on the server even if you close the browser.</li>
+            <li>- If you return with the same browser within 24 hours, you can resume the running job or restore completed results.</li>
+            <li>- After 24 hours, the job may no longer be recoverable.</li>
+            <li>- After completion, always download and save the JSON file.</li>
+          </ul>
         </section>
 
         <section className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
           <h2 className="text-2xl font-semibold">Supported Fields</h2>
-          <div className="mt-4 grid gap-3 sm:grid-cols-2 text-white/85">
+          <div className="mt-4 grid gap-3 text-white/85 sm:grid-cols-2">
             <div>- Title</div>
             <div>- Subtitle</div>
             <div>- Promotional Text</div>
@@ -85,6 +106,24 @@ export default function EnHowToPage() {
         <section className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
           <h2 className="text-2xl font-semibold">Common Cases</h2>
           <div className="mt-4 space-y-4 text-white/85">
+            <div>
+              <p className="font-medium">Q. Translation is taking a long time</p>
+              <p className="mt-1 text-white/70">
+                A. Translating all fields into many languages can take time. You can close the browser and return within 24 hours to resume or restore the job.
+              </p>
+            </div>
+            <div>
+              <p className="font-medium">Q. Is it okay to close the browser during translation?</p>
+              <p className="mt-1 text-white/70">
+                A. Yes, after translation has started. Processing continues on the server, and you can restore it within 24 hours using the same browser.
+              </p>
+            </div>
+            <div>
+              <p className="font-medium">Q. What should I do after translation is complete?</p>
+              <p className="mt-1 text-white/70">
+                A. Download and save the JSON file. You can upload it later to display the results again.
+              </p>
+            </div>
             <div>
               <p className="font-medium">Q. Why did one language come back in English?</p>
               <p className="mt-1 text-white/70">

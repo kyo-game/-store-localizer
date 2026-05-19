@@ -14,15 +14,36 @@ export default function ZhHansHowToPage() {
           <ol className="mt-4 space-y-3 text-white/85">
             <li>1. 在左侧选择源语言，并输入原始商店文案。</li>
             <li>2. 选择套餐和要翻译的目标语言。</li>
-            <li>3. 执行翻译后，结果会显示在右侧。</li>
-            <li>4. 检查各语言标签，并复制需要使用的字段。</li>
-            <li>5. 下载 JSON 文件后，以后可以再次上传并恢复这些翻译结果。</li>
+            <li>3. 付款完成后，翻译会自动开始。</li>
+            <li>4. 翻译完成后，结果会显示在右侧。</li>
+            <li>5. 检查各语言标签，并复制需要使用的字段。</li>
+            <li>6. 下载并保存 JSON 文件。以后可以再次上传并恢复这些翻译结果。</li>
           </ol>
+        </section>
+
+        <section className="mt-8 rounded-2xl border border-sky-500/20 bg-sky-500/5 p-6">
+          <h2 className="text-2xl font-semibold text-sky-300">完成时间</h2>
+          <ul className="mt-4 space-y-3 text-white/85">
+            <li>- 完成时间取决于目标语言数量和原文内容量。</li>
+            <li>- 将全部字段翻译成全部语言时，可能需要几十分钟。</li>
+            <li>- 翻译过程中会显示进度，请等待处理完成。</li>
+            <li>- 语言数量较少或输入内容较短时，通常会更快完成。</li>
+          </ul>
+        </section>
+
+        <section className="mt-8 rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-6">
+          <h2 className="text-2xl font-semibold text-emerald-300">如果关闭浏览器</h2>
+          <ul className="mt-4 space-y-3 text-white/85">
+            <li>- 翻译开始后，即使关闭浏览器，服务器端也会继续处理。</li>
+            <li>- 如果在 24 小时内使用同一浏览器返回，可以恢复正在进行的任务或已完成的结果。</li>
+            <li>- 超过 24 小时后，任务可能无法恢复。</li>
+            <li>- 翻译完成后，请务必下载并保存 JSON 文件。</li>
+          </ul>
         </section>
 
         <section className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
           <h2 className="text-2xl font-semibold">支持的字段</h2>
-          <div className="mt-4 grid gap-3 sm:grid-cols-2 text-white/85">
+          <div className="mt-4 grid gap-3 text-white/85 sm:grid-cols-2">
             <div>- 标题</div>
             <div>- 副标题</div>
             <div>- 推广文本</div>
@@ -85,6 +106,24 @@ export default function ZhHansHowToPage() {
         <section className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
           <h2 className="text-2xl font-semibold">常见情况</h2>
           <div className="mt-4 space-y-4 text-white/85">
+            <div>
+              <p className="font-medium">Q. 翻译需要很长时间</p>
+              <p className="mt-1 text-white/70">
+                A. 将全部字段翻译成多种语言时可能需要较长时间。可以关闭浏览器，并在 24 小时内返回恢复任务或结果。
+              </p>
+            </div>
+            <div>
+              <p className="font-medium">Q. 翻译过程中关闭浏览器可以吗？</p>
+              <p className="mt-1 text-white/70">
+                A. 可以。翻译开始后服务器端会继续处理。使用同一浏览器在 24 小时内返回即可恢复。
+              </p>
+            </div>
+            <div>
+              <p className="font-medium">Q. 翻译完成后应该做什么？</p>
+              <p className="mt-1 text-white/70">
+                A. 请下载并保存 JSON 文件。以后可以上传该文件来重新显示结果。
+              </p>
+            </div>
             <div>
               <p className="font-medium">Q. 为什么某个语言返回了英文？</p>
               <p className="mt-1 text-white/70">
