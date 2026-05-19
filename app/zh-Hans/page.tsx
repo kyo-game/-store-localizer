@@ -116,6 +116,13 @@ type ServiceStatusResponse = {
 
 const STORAGE_KEY = "storelocalizer_state_v1";
 
+const ACTIVE_JOB_KEY = "storelocalizer_active_job_v1";
+
+type ActiveTranslationJob = {
+  jobId: string;
+  startedAt: number;
+};
+
 const LOCALES: LocaleOption[] = [
   { code: "ar-SA", label: "阿拉伯语（沙特阿拉伯）" },
   { code: "ca", label: "加泰罗尼亚语" },
@@ -638,6 +645,7 @@ export default function Home() {
   function handleResetAll() {
     localStorage.removeItem(STORAGE_KEY);
     sessionStorage.removeItem("pendingCheckout");
+    localStorage.removeItem(ACTIVE_JOB_KEY);
 
     const resetLocale = getInitialSourceLocale();
 
@@ -800,25 +808,25 @@ export default function Home() {
       const res = await fetch(`/api/translate-job/status?jobId=${encodeURIComponent(jobId)}`, {
         cache: "no-store",
       });
-
+  
       const data = (await res.json()) as TranslationJobStatusResponse & { error?: string };
-
+  
       if (!res.ok) {
         throw new Error(data.error || "Failed to get translation job status");
       }
-
+  
       setProgressCurrent(data.done);
       setProgressTotal(data.total);
       setProgressLabel(data.progressLabel);
-
+  
       if (data.status === "completed") {
         if (!data.result) {
           throw new Error("Translation result is missing");
         }
-
+  
         const result = data.result;
         const orderedLocales = getOrderedLocales(result.purchasedPlan.selectedLocales);
-
+  
         setSourceLocale(result.sourceLocale);
         setSourceInputs((prev) => ({
           ...prev,
@@ -830,14 +838,18 @@ export default function Home() {
           selectedLocales: orderedLocales,
         });
         setTargetLocale(orderedLocales[0] ?? "");
+        setPurchaseStatus("购买完成");
         setLastActionText("翻译已完成");
+  
+        localStorage.removeItem(ACTIVE_JOB_KEY);
         return;
       }
-
+  
       if (data.status === "failed") {
+        localStorage.removeItem(ACTIVE_JOB_KEY);
         throw new Error(data.error || "Translation failed");
       }
-
+  
       await new Promise((resolve) => setTimeout(resolve, 3000));
     }
   }
@@ -896,6 +908,15 @@ export default function Home() {
 
     try {
       const jobId = await startTranslationJob(sourceLocaleCode, sourceData, nextPlan, sessionId);
+
+      localStorage.setItem(
+        ACTIVE_JOB_KEY,
+        JSON.stringify({
+          jobId,
+          startedAt: Date.now(),
+        } satisfies ActiveTranslationJob)
+      );
+
       await pollTranslationJob(jobId);
     } catch (error) {
       console.error(error);
@@ -1013,6 +1034,40 @@ export default function Home() {
 
   useEffect(() => {
     void fetchServiceStatus();
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (handledCheckoutRef.current) return;
+  
+    const raw = localStorage.getItem(ACTIVE_JOB_KEY);
+    if (!raw) return;
+  
+    try {
+      const active = JSON.parse(raw) as Partial<ActiveTranslationJob>;
+      const jobId = typeof active.jobId === "string" ? active.jobId.trim() : "";
+  
+      if (!jobId) {
+        localStorage.removeItem(ACTIVE_JOB_KEY);
+        return;
+      }
+  
+      setIsTranslating(true);
+      setPurchaseStatus("正在翻译");
+      setLastActionText("正在恢复上次翻译任务");
+      setProgressCurrent(0);
+      setProgressTotal(0);
+      setProgressLabel("resuming");
+  
+      void pollTranslationJob(jobId).finally(() => {
+        setIsTranslating(false);
+        setProgressCurrent(0);
+        setProgressTotal(0);
+        setProgressLabel("");
+      });
+    } catch {
+      localStorage.removeItem(ACTIVE_JOB_KEY);
+    }
   }, []);
 
   useEffect(() => {

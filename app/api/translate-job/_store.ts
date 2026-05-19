@@ -57,7 +57,7 @@ export type TranslationJobState = {
 
 const redis = Redis.fromEnv();
 const JOB_KEY_PREFIX = "store-localizer:translation-job:";
-const JOB_TTL_SECONDS = 60 * 60 * 6;
+const JOB_TTL_SECONDS = 60 * 60 * 24;
 
 function now() {
   return Date.now();
