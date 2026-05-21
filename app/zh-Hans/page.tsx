@@ -707,6 +707,7 @@ export default function Home() {
           selectedField: selectedField ?? "",
           localeCount: String(orderedLocales.length),
           selectedLocales: orderedLocales.join(","),
+          returnPath: "/zh-Hans",
         }),
       });
 

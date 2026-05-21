@@ -19,6 +19,7 @@ type CheckoutBody = {
   selectedField?: string;
   localeCount?: string;
   selectedLocales?: string;
+  returnPath?: string;
 };
 
 const PLAN_PRICES: Record<
@@ -72,6 +73,12 @@ function detectCurrency(req: NextRequest): Currency {
   return acceptLanguage.startsWith("ja") ? "jpy" : "usd";
 }
 
+function getSafeReturnPath(returnPath?: string) {
+  if (returnPath === "/en") return "/en";
+  if (returnPath === "/zh-Hans") return "/zh-Hans";
+  return "";
+}
+
 export async function POST(req: NextRequest) {
   try {
     if (!process.env.STRIPE_SECRET_KEY) {
@@ -82,7 +89,14 @@ export async function POST(req: NextRequest) {
     }
 
     const body = (await req.json()) as CheckoutBody;
-    const { planId, planMode, selectedField, localeCount, selectedLocales } = body;
+    const {
+      planId,
+      planMode,
+      selectedField,
+      localeCount,
+      selectedLocales,
+      returnPath,
+    } = body;
 
     if (!planId || !PLAN_PRICES[planId]) {
       return NextResponse.json(
@@ -95,6 +109,10 @@ export async function POST(req: NextRequest) {
     const currency = detectCurrency(req);
     const baseUrl = getBaseUrl(req);
     const unitAmount = currency === "jpy" ? plan.amountJpy : plan.amountUsd;
+    const safeReturnPath = getSafeReturnPath(returnPath);
+
+    const successUrl = `${baseUrl}${safeReturnPath}/?checkout=success&planId=${planId}&session_id={CHECKOUT_SESSION_ID}`;
+    const cancelUrl = `${baseUrl}${safeReturnPath}/?checkout=cancel`;
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
@@ -120,10 +138,11 @@ export async function POST(req: NextRequest) {
           selectedField: selectedField || "",
           localeCount: localeCount || "",
           selectedLocales: selectedLocales || "",
+          returnPath: safeReturnPath,
         },
       },
-      success_url: `${baseUrl}/?checkout=success&planId=${planId}&session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${baseUrl}/?checkout=cancel`,
+      success_url: successUrl,
+      cancel_url: cancelUrl,
       metadata: {
         planId,
         planName: plan.nameJa,
@@ -131,6 +150,7 @@ export async function POST(req: NextRequest) {
         selectedField: selectedField || "",
         localeCount: localeCount || "",
         selectedLocales: selectedLocales || "",
+        returnPath: safeReturnPath,
         captureMethod: "manual",
       },
     });
